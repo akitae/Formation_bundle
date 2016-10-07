@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Objet list</h1>
+
+    <section class="col-sm-12 table-responsive">
+        <table id="tableau" class="table table-stripped table-bordered" style="background-color:white;">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Datevente</th>
+                    <th>Dateonline</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for objet in objets %}
+                <tr>
+                    <td><a href="{{ path('objet_show', { 'id': objet.id }) }}">{{ objet.id }}</a></td>
+                    <td>{{ objet.name }}</td>
+                    <td>{{ objet.price }}</td>
+                    <td>{{ objet.dateVente }}</td>
+                    <td>{% if objet.dateOnline %}{{ objet.dateOnline|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>
+                        <a class="btn btn-warning" href="{{ path('objet_show', { 'id': objet.id }) }}"><span class="glyphicon glyphicon-eye-open"></span>show</a>
+                        <a class="btn btn-primary" href="{{ path('objet_edit', { 'id': objet.id }) }}"><span class="glyphicon glyphicon-edit "></span>edit</a>
+
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <ul>
+            <a class="btn btn-default pull-right" href="{{ path('objet_new') }}">Create a new entry</a>
+        </ul>
+    </section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script language="JavaScript">
+        $("table#tableau").dataTable();
+
+    </script>
+{% endblock %}

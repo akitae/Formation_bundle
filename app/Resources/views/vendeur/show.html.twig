@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Vendeur</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ vendeur.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ vendeur.name }}</td>
+            </tr>
+            <tr>
+                <th>Adress</th>
+                <td>{{ vendeur.adress }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ vendeur.age }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('vendeur_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('vendeur_edit', { 'id': vendeur.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

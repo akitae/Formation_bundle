@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Objet</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ objet.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ objet.name }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ objet.price }}</td>
+            </tr>
+            <tr>
+                <th>Datevente</th>
+                <td>{{ objet.dateVente }}</td>
+            </tr>
+            <tr>
+                <th>Dateonline</th>
+                <td>{% if objet.dateOnline %}{{ objet.dateOnline|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('objet_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('objet_edit', { 'id': objet.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

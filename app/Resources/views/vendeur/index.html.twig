@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Vendeur list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Adress</th>
+                <th>Age</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vendeur in vendeurs %}
+            <tr>
+                <td><a href="{{ path('vendeur_show', { 'id': vendeur.id }) }}">{{ vendeur.id }}</a></td>
+                <td>{{ vendeur.name }}</td>
+                <td>{{ vendeur.adress }}</td>
+                <td>{{ vendeur.age }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('vendeur_show', { 'id': vendeur.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('vendeur_edit', { 'id': vendeur.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('vendeur_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

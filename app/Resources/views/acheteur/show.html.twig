@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Acheteur</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ acheteur.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ acheteur.name }}</td>
+            </tr>
+            <tr>
+                <th>Adress</th>
+                <td>{{ acheteur.adress }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ acheteur.age }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('acheteur_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('acheteur_edit', { 'id': acheteur.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
