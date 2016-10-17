@@ -33,7 +33,7 @@ class Objet
     private $name;
 
     /**
-     * Le prix indiqué est en euros
+     * Le prix indiqué est en euros ou pas...
      * @var int
      *
      * @ORM\Column(name="price", type="integer")
