@@ -22,7 +22,7 @@ class Acheteur
      */
     private $id;
 
-    /**
+    /**Le nom de l'acheteur
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)

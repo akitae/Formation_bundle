@@ -15,7 +15,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 /**
  * Acheteur controller.
  *
- * @Rest\Prefix("/api/")
+ * @Route("/api/")
 
  */
 class ApiController extends FOSRestController

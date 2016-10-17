@@ -39,6 +39,7 @@ class SidebarSetupMenuListener
             new MenuItemModel('objet', 'objet', 'objet_index', $earg, 'fa fa-indent'),
             new MenuItemModel('acheteur', 'acheteur', 'acheteur_index', $earg, 'fa fa-mobile'),
             new MenuItemModel('vendeur', 'vendeur', 'vendeur_index', $earg, 'fa fa-mobile'),
+            new MenuItemModel('register', 'login', 'fos_user_security_login', $earg, 'fa fa-fw fa-odnoklassniki'),
             new MenuItemModel('api/doc', 'api/doc','/api/doc', $earg, 'fa fa-laptop')
 
         ];
